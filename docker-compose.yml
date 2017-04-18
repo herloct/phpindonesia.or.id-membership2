@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+    composer:
+        image: composer:1.4.1
+        volumes:
+            - .:/app
+
+    web:
+        build: .
+        depends_on:
+            - database
+            - smtp
+        expose:
+            - '80'
+        command:
+            - php
+            - -S
+            - 0.0.0.0:80
+            - -t
+            - www
+        ports:
+            - '80:80'
+        volumes:
+            - .:/app
+
+    database:
+        image: mysql:5.6.36
+        environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+            MYSQL_USER: mysql_user
+            MYSQL_PASSWORD: mysql password
+            MYSQL_DATABASE: membership
+        volumes:
+            - ./app/data:/docker-entrypoint-initdb.d:ro
+
+    smtp:
+        image: mailhog/mailhog:v1.0.0
+        ports:
+            - '8025:8025'
