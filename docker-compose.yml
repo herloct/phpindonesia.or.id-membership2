@@ -34,6 +34,13 @@ services:
         volumes:
             - ./app/data:/docker-entrypoint-initdb.d:ro
 
+    adminer:
+        image: adminer:4.3.0-standalone
+        depends_on:
+            - database
+        ports:
+            - '8080:8080'
+
     smtp:
         image: mailhog/mailhog:v1.0.0
         ports:
