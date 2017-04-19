@@ -14,7 +14,7 @@ services:
             DB_PASS: $DB_PASS
             DB_NAME: $DB_NAME
         depends_on:
-            - web
+            - database
         entrypoint:
             - php
             - vendor/bin/codecept
@@ -47,6 +47,8 @@ services:
             MYSQL_USER: $DB_USER
             MYSQL_PASSWORD: $DB_PASS
             MYSQL_DATABASE: $DB_NAME
+        volumes:
+            - ./app/data:/docker-entrypoint-initdb.d:ro
 
     adminer:
         image: adminer:4.3.0-standalone
