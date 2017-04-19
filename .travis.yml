@@ -23,10 +23,14 @@ before_install:
 
 install:
     - composer install
+    - wget https://scrutinizer-ci.com/ocular.phar
 
 before_script:
     - mysql -e 'CREATE DATABASE membership;'
     - cp app/settings.php.disable app/settings.php
 
 script:
-    - vendor/bin/codecept run --coverage
+    - vendor/bin/codecept run --coverage-xml
+
+after_success:
+    - php ocular.phar code-coverage:upload --format=php-clover app/tests/_output/coverage.xml

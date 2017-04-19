@@ -1,0 +1,12 @@
+filter:
+    excluded_paths:
+        - 'vendor/*'
+        - '*.min.js'
+checks:
+    php: true
+    javascript: true
+tools:
+    php_cs_fixer:
+        config: { level: psr2 }
+    external_code_coverage: true
+build: false
