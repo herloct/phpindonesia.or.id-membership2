@@ -1,0 +1,29 @@
+namespace: Membership
+actor: Tester
+paths:
+    tests: app/tests
+    log: app/tests/_output
+    data: app/tests/_data
+    support: app/tests/_support
+    envs: app/tests/_envs
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+params:
+  - env
+modules:
+    enabled:
+        - \Membership\Helper\Db:
+            dsn: 'mysql:host=%DB_HOST%;dbname=%DB_NAME%'
+            user: '%DB_USER%'
+            password: '%DB_PASS%'
+            dump: app/tests/_data/dump.sql
+coverage:
+    enabled: true
+    remote: false
+    include:
+        - app/src/*
