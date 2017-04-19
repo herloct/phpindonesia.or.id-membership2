@@ -2,6 +2,7 @@
 namespace Membership\Models;
 
 use Faker\Factory;
+use Faker\Generator;
 
 class UsersTest extends \Codeception\Test\Unit
 {
@@ -16,7 +17,7 @@ class UsersTest extends \Codeception\Test\Unit
     protected $tester;
 
     /**
-     * @var Factory
+     * @var Generator
      */
     private $faker;
 
