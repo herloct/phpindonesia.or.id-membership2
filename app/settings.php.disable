@@ -7,11 +7,11 @@ return [
         'email' => '',
     ],
     'db' => [
-        'host'     => 'localhost',
+        'host'     => getenv('DB_HOST'),
         'driver'   => 'mysql',
-        'username' => 'root',
-        'password' => '',
-        'dbname'   => '',
+        'username' => getenv('DB_USER'),
+        'password' => getenv('DB_PASS'),
+        'dbname'   => getenv('DB_NAME'),
     ],
     'mailer' => [
         'host'     => 'smtp.gmail.com',

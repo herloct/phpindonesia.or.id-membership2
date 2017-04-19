@@ -6,8 +6,24 @@ services:
         volumes:
             - .:/app
 
+    codecept:
+        image: phpindonesia/membership
+        environment:
+            DB_HOST: $DB_HOST
+            DB_USER: $DB_USER
+            DB_PASS: $DB_PASS
+            DB_NAME: $DB_NAME
+        depends_on:
+            - web
+        entrypoint:
+            - php
+            - vendor/bin/codecept
+        volumes:
+            - .:/app
+
     web:
         build: .
+        image: phpindonesia/membership
         depends_on:
             - database
             - smtp
@@ -28,11 +44,9 @@ services:
         image: mysql:5.6.36
         environment:
             MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
-            MYSQL_USER: mysql_user
-            MYSQL_PASSWORD: mysql password
-            MYSQL_DATABASE: membership
-        volumes:
-            - ./app/data:/docker-entrypoint-initdb.d:ro
+            MYSQL_USER: $DB_USER
+            MYSQL_PASSWORD: $DB_PASS
+            MYSQL_DATABASE: $DB_NAME
 
     adminer:
         image: adminer:4.3.0-standalone
