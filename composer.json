@@ -21,5 +21,15 @@
         "files": [
             "app/src/helpers.php"
         ]
+    },
+    "require-dev": {
+        "codeception/codeception": "^2.2"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Membership\\": [
+                "app/tests/integration/"
+            ]
+        }
     }
 }
