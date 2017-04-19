@@ -2,6 +2,12 @@
     "name": "phpindonesia/membership-2",
     "description": "PHP Indonesia Membership Application Reloaded",
     "type": "project",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
@@ -23,7 +29,8 @@
         ]
     },
     "require-dev": {
-        "codeception/codeception": "^2.2"
+        "codeception/codeception": "^2.2",
+        "fzaninotto/faker": "^1.6"
     },
     "autoload-dev": {
         "psr-4": {
