@@ -17,7 +17,7 @@ env:
         - DB_NAME=membership
 
 before_install:
-    - mysql -e 'CREATE DATABASE $DB_NAME;'
+    - mysql -e 'CREATE DATABASE membership;'
     - composer self-update
 
 install:
