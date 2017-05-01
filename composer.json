@@ -2,9 +2,10 @@
     "name": "phpindonesia/membership-2",
     "description": "PHP Indonesia Membership Application Reloaded",
     "type": "project",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
+        "php": "^7.1",
         "cloudinary/cloudinary_php": "dev-master",
         "google/recaptcha": "~1.1",
         "projek-xyz/slim-plates": "~0.2",
