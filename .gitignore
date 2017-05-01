@@ -12,7 +12,6 @@ Icon?
 
 # Development files
 # --------------------------
-app/settings.php
 .env
 
 # Dependency folders
